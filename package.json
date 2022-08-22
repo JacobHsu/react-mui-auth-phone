@@ -3,12 +3,14 @@
   "version": "5.0.0",
   "private": true,
   "dependencies": {
-    "@mui/material": "latest",
+    "@mui/icons-material": "^5.8.4",
     "@mui/lab": "latest",
+    "@mui/material": "latest",
     "@mui/styled-engine-sc": "latest",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
+    "firebase": "^9.9.3",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
@@ -33,6 +35,7 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "latest"
+    "@craco/craco": "latest",
+    "react-phone-input-2": "^2.15.1"
   }
 }

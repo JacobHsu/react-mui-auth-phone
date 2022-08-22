@@ -2,6 +2,12 @@
 
 material-ui/examples/[create-react-app-with-styled-components](https://github.com/mui/material-ui/tree/master/examples)
 
+## Debug
+
+> Uncaught TypeError: Cannot destructure property 'setUpRecaptha' 
+
+! `UserAuthContextProvider` 必須注入 App.js
+
 ## How to use
 
 Download the example [or clone the repo](https://github.com/mui/material-ui):
