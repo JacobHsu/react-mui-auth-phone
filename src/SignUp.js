@@ -18,6 +18,9 @@ import PhoneInput from 'react-phone-input-2';
 // import 'react-phone-input-2/lib/material.css'
 import './style/material.css';
 
+// import "react-phone-number-input/style.css";
+// import PhoneInput from "react-phone-number-input";
+
 import { useUserAuth } from "./context/UserAuthContext";
 
 function Copyright(props) {
@@ -45,7 +48,9 @@ export default function SignUp() {
   const { setUpRecaptha } = useUserAuth();
 
   const [number, setNumber] = useState('');
+  const [flag, setFlag] = useState(false);
   const [otp, setOtp] = useState("");
+  const [result, setResult] = useState("");
   const [error, setError] = useState("");
 
   const getOtp = async (e) => {
@@ -54,10 +59,21 @@ export default function SignUp() {
     if (number === "" || number === undefined)
       return setError("Please enter a valid phone number!");
     try {
-      const response = await setUpRecaptha(number);
-      console.log(1111, response)
-      // setResult(response);
-      // setFlag(true);
+      const response = await setUpRecaptha(`+${number}`);
+      setResult(response);
+      setFlag(true);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const verifyOtp = async (e) => {
+    e.preventDefault();
+    setError("");
+    if (otp === "" || otp === null) return;
+    try {
+      await result.confirm(otp);
+      alert('login')
     } catch (err) {
       setError(err.message);
     }
@@ -90,6 +106,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
+          {error && <Typography color="error">{error}</Typography>}
           <Box
             component="form"
             noValidate
@@ -115,9 +132,10 @@ export default function SignUp() {
                     Spain: 'España',
                   }}
                   value={number}
+                  placeholder="請輸入手機號碼"
                   onChange={(phone) => setNumber(phone)}
                 />
-                <div id="recaptcha-container"></div>
+                { !flag && <div id="recaptcha-container"></div> }
               </Grid>
               <Grid item xs={12} sm={8}>
                 <Paper
@@ -148,45 +166,19 @@ export default function SignUp() {
                       //startAdornment: InputAdornmentImg(outToken.iconPath),
                     }}
                     placeholder="請輸入 6 位數驗證碼"
-                    onChange={(event) => verifyOtp(event.target.value)}
+                    onChange={(e) => setOtp(e.target.value)}
                   />
                   <Button
                     variant="outlined"
                     size="small"
                     onClick={(e) => {
-                      //alert(1);
                       getOtp(e);
-                      //onPresentCurrencyModal()
                     }}
                   >
                     發送驗證碼
                   </Button>
                 </Paper>
               </Grid>
-              <Grid item xs={12} sm={8}>
-                <TextField
-                  autoComplete="given-opt"
-                  name="opt"
-                  required
-                  fullWidth
-                  id="opt"
-                  label="opt"
-                  placeholder="請輸入 6 位數驗證碼"
-                  autoFocus
-                  size="small"
-                  style={{ height: '40px' }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={4} textAlign="center">
-                <Button
-                  variant="outlined"
-                  size="large"
-                  style={{ marginTop: '-1px' }}
-                >
-                  發送驗證碼
-                </Button>
-              </Grid>
-
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
@@ -202,6 +194,9 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={(e) => {
+                verifyOtp(e)
+              }}
             >
               登入 / 註冊
             </Button>
