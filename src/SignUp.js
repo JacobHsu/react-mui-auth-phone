@@ -14,6 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from '@mui/material';
 
+import CountDownButton from './components/button/CountDownButton';
+
 import PhoneInput from 'react-phone-input-2';
 // import 'react-phone-input-2/lib/material.css'
 import './style/material.css';
@@ -168,15 +170,7 @@ export default function SignUp() {
                     placeholder="請輸入 6 位數驗證碼"
                     onChange={(e) => setOtp(e.target.value)}
                   />
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    onClick={(e) => {
-                      getOtp(e);
-                    }}
-                  >
-                    發送驗證碼
-                  </Button>
+                  <CountDownButton getOtp={getOtp} title="發送驗證碼" />
                 </Paper>
               </Grid>
               <Grid item xs={12}>
