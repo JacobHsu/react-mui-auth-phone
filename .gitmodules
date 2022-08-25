@@ -1,3 +1,0 @@
-[submodule "backend/node-passportjs"]
-	path = backend/node-passportjs
-	url = https://github.com/JacobHsu/node-passportjs.git

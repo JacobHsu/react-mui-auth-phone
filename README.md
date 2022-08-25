@@ -16,7 +16,21 @@ React Social Login with Passport.js | React oAuth w/ Google, Facebook, Github
 
 ## submodule
 
-`git submodule add https://github.com/JacobHsu/node-passportjs.git backend/node-passportjs`
+`git submodule add https://github.com/JacobHsu/node-passportjs.git backend/node-passportjs`  
+`git submodule update --recursive --remote`
+
+```bash
+// 在主模組目錄下解除submodule關係
+git submodule deinit backend/node-passportjs
+刪除在.gitmodules檔案的與git-sub-module的內容
+git rm .gitmodules
+git rm --cached backend/node-passportjs
+// 這個路徑下的所有檔案刪除
+rm -rf .git/modules/ backend/node-passportjs
+git commit -m 'remove submodule'
+rm -rf backend/node-passportjs
+git push
+```
 
 ## How to use
 
