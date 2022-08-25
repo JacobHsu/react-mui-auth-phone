@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from '@mui/material';
+import SocialBtns from './SocialBtns';
 
 import CountDownButton from './components/button/CountDownButton';
 
@@ -22,6 +23,7 @@ import './style/material.css';
 
 // import "react-phone-number-input/style.css";
 // import PhoneInput from "react-phone-number-input";
+
 
 import { useUserAuth } from "./context/UserAuthContext";
 
@@ -202,8 +204,10 @@ export default function SignUp() {
               </Grid>
             </Grid>
           </Box>
+
+          <SocialBtns />
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
   );
