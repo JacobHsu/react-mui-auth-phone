@@ -14,6 +14,10 @@ React Social Login with Passport.js | React oAuth w/ Google, Facebook, Github
 [https://www.youtube.com/watch?v=7K9kDrtc4S8](https://www.youtube.com/watch?v=7K9kDrtc4S8)  
 [Source Code](https://github.com/safak/youtube/tree/react-social-login)
 
+## submodule
+
+`git submodule add https://github.com/JacobHsu/node-passportjs.git backend/node-passportjs`
+
 ## How to use
 
 Download the example [or clone the repo](https://github.com/mui/material-ui):
