@@ -32,6 +32,17 @@ rm -rf backend/node-passportjs
 git push
 ```
 
+## console.cloud.google.com
+
+js-google-api > API和服務 > 網路用戶端   
+http://localhost:3000  
+https://node-passportjs.vercel.app  
+
+重新導向 URI
+
+http://localhost:5000/auth/google/callback
+https://node-passportjs.vercel.app/auth/google/callback  
+
 ## How to use
 
 Download the example [or clone the repo](https://github.com/mui/material-ui):

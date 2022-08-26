@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
+    "env-cmd": "^10.1.0",
     "firebase": "^9.9.3",
     "react": "latest",
     "react-dom": "latest",
@@ -17,8 +18,8 @@
     "styled-components": "latest"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "env-cmd -e sit craco start",
+    "build": "env-cmd -e prod craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
